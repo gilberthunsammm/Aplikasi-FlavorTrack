@@ -1,49 +1,29 @@
 import { Text, View } from "react-native";
+import { styles } from "../constants/styles";
 
 interface DietaryLabelProps {
-  isVegan: boolean;
-  isSpicy: boolean;
+  isSpicy?: boolean;
+  isVegetarian?: boolean;
 }
 
-// Custom Function (Arrow Function Component)
-const DietaryLabel = ({ isVegan, isSpicy }: DietaryLabelProps) => {
-  // Penggunaan Kondisi if sederhana (ternary tidak dipakai di sini untuk memisahkan logic)
-  if (!isVegan && !isSpicy) return null;
+const DietaryLabel = ({ isSpicy, isVegetarian }: DietaryLabelProps) => {
+  if (isSpicy) {
+    return (
+      <View style={[styles.badge, { backgroundColor: "#ef4444" }]}>
+        <Text style={styles.badgeText}>PEDAS</Text>
+      </View>
+    );
+  }
 
-  return (
-    <View style={{ flexDirection: "row", gap: 8 }}>
-      {isVegan ? (
-        // Inline Style dinamis
-        <View
-          style={{
-            backgroundColor: "#10b981",
-            paddingHorizontal: 8,
-            paddingVertical: 4,
-            borderRadius: 4,
-          }}
-        >
-          <Text style={{ color: "white", fontSize: 10, fontWeight: "bold" }}>
-            VEGAN
-          </Text>
-        </View>
-      ) : null}
+  if (isVegetarian) {
+    return (
+      <View style={[styles.badge, { backgroundColor: "#10b981" }]}>
+        <Text style={styles.badgeText}>VEG</Text>
+      </View>
+    );
+  }
 
-      {isSpicy ? (
-        <View
-          style={{
-            backgroundColor: "#ef4444",
-            paddingHorizontal: 8,
-            paddingVertical: 4,
-            borderRadius: 4,
-          }}
-        >
-          <Text style={{ color: "white", fontSize: 10, fontWeight: "bold" }}>
-            PEDAS
-          </Text>
-        </View>
-      ) : null}
-    </View>
-  );
+  return null;
 };
 
 export default DietaryLabel;
