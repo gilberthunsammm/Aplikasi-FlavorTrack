@@ -101,7 +101,7 @@ export default function Index() {
         }
       />
 
-      {/* Menambahkan prop onClearCart ke OrderSummary */}
+      {/* Menambahkan prop onClearCart ke OrderSummaryyy */}
       <OrderSummary
         cartData={cart}
         onDecrease={handleDecreaseItem}
