@@ -4,22 +4,26 @@ export const menuItems: MenuItem[] = [
   {
     id: "1",
     name: "Nasi Goreng Mercon",
-    description: "Nasi goreng pedas gila dengan telur mata sapi dan ayam suwir.",
+    description:
+      "Nasi goreng pedas gila dengan telur mata sapi dan ayam suwir.",
     price: 25000,
     category: "food",
     isSpicy: true,
     isVegetarian: false,
-    imageUrl: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=600&q=80",
+    imageUrl:
+      "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=600&q=80",
   },
   {
     id: "2",
     name: "Salad Buah Segar",
-    description: "Potongan buah segar apel, anggur, dan melon dengan mayones manis.",
+    description:
+      "Potongan buah segar apel, anggur, dan melon dengan mayones manis.",
     price: 18000,
     category: "dessert",
     isSpicy: false,
     isVegetarian: true,
-    imageUrl: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80",
+    imageUrl:
+      "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80",
   },
   {
     id: "3",
@@ -29,17 +33,20 @@ export const menuItems: MenuItem[] = [
     category: "drink",
     isSpicy: false,
     isVegetarian: true,
-    imageUrl: "https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=600&q=80",
+    imageUrl:
+      "https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=600&q=80",
   },
   {
     id: "4",
     name: "Tahu Walik Crispy",
-    description: "Tahu goreng krispi dengan isian aci gurih disajikan dengan petis.",
+    description:
+      "Tahu goreng krispi dengan isian aci gurih disajikan dengan petis.",
     price: 12000,
     category: "snack",
     isSpicy: false,
     isVegetarian: true,
-    imageUrl: "https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&w=600&q=80",
+    imageUrl:
+      "https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&w=600&q=80",
   },
   {
     id: "5",
@@ -49,7 +56,8 @@ export const menuItems: MenuItem[] = [
     category: "food",
     isSpicy: true,
     isVegetarian: false,
-    imageUrl: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80",
+    imageUrl:
+      "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80",
   },
   {
     id: "6",
@@ -59,6 +67,29 @@ export const menuItems: MenuItem[] = [
     category: "drink",
     isSpicy: false,
     isVegetarian: true,
-    imageUrl: "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=600&q=80",
+    imageUrl:
+      "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=600&q=80",
+  },
+  {
+    id: "7",
+    name: "saya berhasil mengerjakan demo",
+    description: "Tugas no 1.",
+    price: 1,
+    category: "tugas",
+    isSpicy: false,
+    isVegetarian: true,
+    imageUrl:
+      "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=600&q=80",
+  },
+  {
+    id: "8",
+    name: "202410370110014",
+    description: "Tugas no 3",
+    price: 3,
+    category: "tugas",
+    isSpicy: false,
+    isVegetarian: true,
+    imageUrl:
+      "https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=600&q=80",
   },
 ];

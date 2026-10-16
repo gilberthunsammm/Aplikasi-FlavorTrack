@@ -1,5 +1,13 @@
-import { useState } from "react";
-import { FlatList, Pressable, ScrollView, Text, TextInput, View } from "react-native";
+import { useRouter } from "expo-router"; // <-- Navigasi Expo Router
+import { useEffect, useState } from "react";
+import {
+  FlatList,
+  Pressable,
+  ScrollView,
+  Text,
+  TextInput,
+  View,
+} from "react-native";
 import MenuCard from "../components/MenuCard";
 import OrderSummary from "../components/OrderSummary";
 import { menuItems } from "../constants/menuData";
@@ -8,16 +16,30 @@ import { FoodCategory } from "../constants/types";
 import { CartItem } from "../constants/utils";
 
 export default function Index() {
+  const router = useRouter();
   const appTitle = "FlavorTrack";
   const categories: FoodCategory[] = ["food", "drink", "snack", "dessert"];
 
   const [searchQuery, setSearchQuery] = useState("");
-  const [activeCategory, setActiveCategory] = useState<FoodCategory | null>(null);
+  const [activeCategory, setActiveCategory] = useState<FoodCategory | null>(
+    null,
+  );
   const [cart, setCart] = useState<CartItem[]>([]);
 
+  // Penerapan useEffect sesuai ketentuan Modul 2
+  useEffect(() => {
+    console.log(
+      "Komponen Index dimuat atau terjadi perubahan filter/pencarian.",
+    );
+  }, [searchQuery, activeCategory]);
+
   const filteredMenu = menuItems.filter((item) => {
-    const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesCategory = activeCategory ? item.category === activeCategory : true;
+    const matchesSearch = item.name
+      .toLowerCase()
+      .includes(searchQuery.toLowerCase());
+    const matchesCategory = activeCategory
+      ? item.category === activeCategory
+      : true;
     return matchesSearch && matchesCategory;
   });
 
@@ -26,10 +48,15 @@ export default function Index() {
       const existingItem = prevCart.find((cartItem) => cartItem.id === item.id);
       if (existingItem) {
         return prevCart.map((cartItem) =>
-          cartItem.id === item.id ? { ...cartItem, qty: cartItem.qty + 1 } : cartItem
+          cartItem.id === item.id
+            ? { ...cartItem, qty: cartItem.qty + 1 }
+            : cartItem,
         );
       } else {
-        return [...prevCart, { id: item.id, name: item.name, price: item.price, qty: 1 }];
+        return [
+          ...prevCart,
+          { id: item.id, name: item.name, price: item.price, qty: 1 },
+        ];
       }
     });
   };
@@ -39,7 +66,9 @@ export default function Index() {
       const existingItem = prevCart.find((cartItem) => cartItem.id === id);
       if (existingItem && existingItem.qty > 1) {
         return prevCart.map((cartItem) =>
-          cartItem.id === id ? { ...cartItem, qty: cartItem.qty - 1 } : cartItem
+          cartItem.id === id
+            ? { ...cartItem, qty: cartItem.qty - 1 }
+            : cartItem,
         );
       } else {
         return prevCart.filter((cartItem) => cartItem.id !== id);
@@ -47,7 +76,6 @@ export default function Index() {
     });
   };
 
-  // Fungsi baru untuk membersihkan keranjang saat pembayaran selesai
   const handleClearCart = () => {
     setCart([]);
   };
@@ -56,7 +84,30 @@ export default function Index() {
     <View style={styles.mainContainer}>
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Welcome to {appTitle}</Text>
-        <Text style={styles.headerSubtitle}>Pesan menu favoritmu sekarang!</Text>
+        <Text style={styles.headerSubtitle}>
+          Pesan menu favoritmu sekarang!
+        </Text>
+
+        {/* Tombol Navigasi menggunakan router.push() */}
+        <Pressable
+          style={{
+            marginTop: 12,
+            backgroundColor: "#0f172a",
+            padding: 10,
+            borderRadius: 10,
+            alignItems: "center",
+          }}
+          onPress={() =>
+            router.push({
+              pathname: "/detail",
+              params: { info: "Promo Diskon Spesial UMM!" },
+            })
+          }
+        >
+          <Text style={{ color: "#fff", fontWeight: "bold", fontSize: 13 }}>
+            Lihat Info / Promo
+          </Text>
+        </Pressable>
       </View>
 
       <View style={styles.searchContainer}>
@@ -71,7 +122,10 @@ export default function Index() {
       <View style={styles.categoryContainer}>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           <Pressable
-            style={[styles.categoryChip, activeCategory === null && { backgroundColor: "#0f172a" }]}
+            style={[
+              styles.categoryChip,
+              activeCategory === null && { backgroundColor: "#0f172a" },
+            ]}
             onPress={() => setActiveCategory(null)}
           >
             <Text style={styles.categoryText}>ALL</Text>
@@ -80,7 +134,10 @@ export default function Index() {
           {categories.map((cat, index) => (
             <Pressable
               key={`cat-${index}`}
-              style={[styles.categoryChip, activeCategory === cat && { backgroundColor: "#0f172a" }]}
+              style={[
+                styles.categoryChip,
+                activeCategory === cat && { backgroundColor: "#0f172a" },
+              ]}
               onPress={() => setActiveCategory(cat)}
             >
               <Text style={styles.categoryText}>{cat.toUpperCase()}</Text>
@@ -92,16 +149,19 @@ export default function Index() {
       <FlatList
         data={filteredMenu}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <MenuCard item={item} onAdd={handleAddToCart} />}
+        renderItem={({ item }) => (
+          <MenuCard item={item} onAdd={handleAddToCart} />
+        )}
         contentContainerStyle={styles.listContainer}
         ListEmptyComponent={
-          <Text style={{ textAlign: "center", marginTop: 20, color: "#64748b" }}>
+          <Text
+            style={{ textAlign: "center", marginTop: 20, color: "#64748b" }}
+          >
             Menu tidak ditemukan.
           </Text>
         }
       />
 
-      {/* Menambahkan prop onClearCart ke OrderSummaryyy */}
       <OrderSummary
         cartData={cart}
         onDecrease={handleDecreaseItem}
