@@ -2,94 +2,44 @@ import { MenuItem } from "./types";
 
 export const menuItems: MenuItem[] = [
   {
-    id: "1",
+    id: "m1",
     name: "Nasi Goreng Mercon",
-    description:
-      "Nasi goreng pedas gila dengan telur mata sapi dan ayam suwir.",
+    category: "food",
     price: 25000,
-    category: "food",
-    isSpicy: true,
-    isVegetarian: false,
-    imageUrl:
-      "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=600&q=80",
+    // KODE YANG DIPERBAIKI: Mengembalikan format ke .jpg
+    image:
+      "https://detiknusantara.co.id/wp-content/uploads/2025/07/IMG-20250726-WA0012.jpg",
   },
   {
-    id: "2",
+    id: "m2",
     name: "Salad Buah Segar",
-    description:
-      "Potongan buah segar apel, anggur, dan melon dengan mayones manis.",
-    price: 18000,
     category: "dessert",
-    isSpicy: false,
-    isVegetarian: true,
-    imageUrl:
-      "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80",
-  },
-  {
-    id: "3",
-    name: "Es Kopi Susu Aren",
-    description: "Kopi espresso dengan susu segar dan gula aren asli.",
-    price: 15000,
-    category: "drink",
-    isSpicy: false,
-    isVegetarian: true,
-    imageUrl:
-      "https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=600&q=80",
-  },
-  {
-    id: "4",
-    name: "Tahu Walik Crispy",
-    description:
-      "Tahu goreng krispi dengan isian aci gurih disajikan dengan petis.",
-    price: 12000,
-    category: "snack",
-    isSpicy: false,
-    isVegetarian: true,
-    imageUrl:
-      "https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&w=600&q=80",
-  },
-  {
-    id: "5",
-    name: "Mie Kuah Tomyum",
-    description: "Mie kuah asam pedas ala Thai dengan udang dan jamur.",
-    price: 28000,
-    category: "food",
-    isSpicy: true,
-    isVegetarian: false,
-    imageUrl:
-      "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80",
-  },
-  {
-    id: "6",
-    name: "Matcha Latte",
-    description: "Minuman teh hijau khas Jepang dipadu susu hangat lembut.",
     price: 18000,
+    image:
+      "https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg?auto=compress&cs=tinysrgb&w=500",
+  },
+  {
+    id: "m3",
+    name: "Es Kopi Susu Aren",
     category: "drink",
-    isSpicy: false,
-    isVegetarian: true,
-    imageUrl:
-      "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=600&q=80",
+    price: 15000,
+    image:
+      "https://images.pexels.com/photos/1191639/pexels-photo-1191639.jpeg?auto=compress&cs=tinysrgb&w=500",
   },
   {
-    id: "7",
-    name: "saya berhasil mengerjakan demo",
-    description: "Tugas no 1.",
-    price: 1,
-    category: "tugas",
-    isSpicy: false,
-    isVegetarian: true,
-    imageUrl:
-      "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=600&q=80",
+    id: "m4",
+    name: "Kentang Goreng Keju",
+    category: "snack",
+    price: 12000,
+    image:
+      "https://images.pexels.com/photos/115740/pexels-photo-115740.jpeg?auto=compress&cs=tinysrgb&w=500",
   },
   {
-    id: "8",
-    name: "202410370110014",
-    description: "Tugas no 3",
-    price: 3,
-    category: "tugas",
-    isSpicy: false,
-    isVegetarian: true,
-    imageUrl:
-      "https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=600&q=80",
+    id: "m5",
+    name: "Ayam Bakar Madu",
+    category: "food",
+    price: 30000,
+    image:
+      "https://images.pexels.com/photos/2611917/pexels-photo-2611917.jpeg?auto=compress&cs=tinysrgb&w=500",
   },
 ];
